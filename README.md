@@ -15,4 +15,4 @@ A nice rose diagram with the angles in 5 degrees bins is also produced.
 <a href="ftp://ftp.sam.math.ethz.ch/sfs/R-CRAN/web/packages/mosaic/vignettes/Resampling.pdf">Kaplan et al (2019)</a>
 <a href="http://ftp.sam.math.ethz.ch/sfs/R-CRAN/web/packages/mosaic/vignettes/Resampling.pdf">here</a>
 
-This site was built using [GitHub Pages](https://pages.github.com/).
+This site was built using [Kaplan et al. (2019)](https://cran.r-project.org/web/packages/mosaic/vignettes/Resampling.pdf).
