@@ -1,4 +1,4 @@
-# # in terminal
+ls -al# # in terminal
 # 
 # cd /Users/lince/Downloads/Olofsson\ et\ al\,\ Figure\ 4H
 # 
@@ -51,6 +51,8 @@ total_RL_GENOTYPE <- Right_GENOTYPE + Left_GENOTYPE
 
 total_AP_GENOTYPE <- Anterior_GENOTYPE + Posterior_GENOTYPE
 
+sink('GENOTYPE.txt')
+
 x <- paste("\nAngles\n", L1, L2, R1, R2, "\n\n")
 
 writeLines(x)
@@ -59,13 +61,23 @@ writeLines(x)
 # change test as wished: "less" or "greater" or "two.sided"
 # #########################################################
 
+cat("===================================================================\n")
+cat("Binomial test: Right_GENOTYPE is less than 0.5")
+cat("===================================================================\n")
+
 binom.test(x = Right_GENOTYPE, n = total_RL_GENOTYPE, p = 0.5, alternative = c("less"), conf.level = 0.95)
 
 # ###########################################
 # change test as wished: "<=" or ">=" or "=="
 # ###########################################
 
+cat("===================================================================\n")
+cat("Proportion of simulations where Right_GENOTYPE is <= 0.5")
+cat("===================================================================\n")
+
 prop(~rbinom(100000, prob=0.5, size= total_RL_GENOTYPE) <= Right_GENOTYPE)
+
+sink()
 
 X <- select(tbl_GENOTYPE, Angle)
 
