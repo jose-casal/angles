@@ -12,4 +12,5 @@ Two similar tests are emplyoyed:
 
 A nice rose diagram with the angles in 5 degrees bins is also produced.
 
-<a href="ftp://ftp.sam.math.ethz.ch/sfs/R-CRAN/web/packages/mosaic/vignettes/Resampling.pdf">Kaplan et al (2019)</a> 
+<a href="ftp://ftp.sam.math.ethz.ch/sfs/R-CRAN/web/packages/mosaic/vignettes/Resampling.pdf">Kaplan et al (2019)</a>
+<a href="http://www.yahoo.com">here</a> 
