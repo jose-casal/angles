@@ -3,14 +3,13 @@ R script to test if EB1 comet angles are distributed randomly between opposite s
 
 Change GENOTYPE with the actual one (substitute spaces with underlines and don't use strange characters)
 
-Two similar tests are emplyoyed(:
+Two similar tests are emplyoyed:
 
 - binom.test from stats package. Change test as wished: "less" or "greater" or "two.sided".
 - prop from mosaic package to test the proportion of trials giving a result "<=" or ">=" or "==" than the observed.
 
-(ftp://ftp.sam.math.ethz.ch/sfs/R-CRAN/web/packages/mosaic/vignettes/Resampling.pdf)
 		
 
 A nice rose diagram with the angles in 5 degrees bins is also produced.
 
-<a href="ftp://ftp.sam.math.ethz.ch/sfs/R-CRAN/web/packages/mosaic/vignettes/Resampling.pdf">[Kaplan et al (2019) ]</a> 
+<a href="ftp://ftp.sam.math.ethz.ch/sfs/R-CRAN/web/packages/mosaic/vignettes/Resampling.pdf">Kaplan et al (2019)</a> 
