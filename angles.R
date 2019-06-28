@@ -1,4 +1,4 @@
-ls -al# # in terminal
+# # in terminal
 # 
 # cd /Users/lince/Downloads/Olofsson\ et\ al\,\ Figure\ 4H
 # 
