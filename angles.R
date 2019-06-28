@@ -67,19 +67,31 @@ cat("===================================================================\n")
 
 binom.test(x = Right_GENOTYPE, n = total_RL_GENOTYPE, p = 0.5, alternative = c("less"), conf.level = 0.95)
 
+cat("===================================================================\n")
+cat("Binomial test: Posterior_GENOTYPE is less than 0.5")
+cat("===================================================================\n")
+
+binom.test(x = Posterior_GENOTYPE, n = total_AP_GENOTYPE, p = 0.5, alternative = c("less"), conf.level = 0.95)
+
 # ###########################################
 # change test as wished: "<=" or ">=" or "=="
 # ###########################################
 
 cat("===================================================================\n")
-cat("Proportion of simulations where Right_GENOTYPE is <= 0.5")
+cat("Proportion of simulations where Right_GENOTYPE is <= bserved")
 cat("===================================================================\n")
 
 prop(~rbinom(100000, prob=0.5, size= total_RL_GENOTYPE) <= Right_GENOTYPE)
 
+cat("===================================================================\n")
+cat("Proportion of simulations where Posterior_GENOTYPE is <= observed")
+cat("===================================================================\n")
+
+prop(~rbinom(100000, prob=0.5, size= total_AP_GENOTYPE) <= Posterior_GENOTYPE)
+
 sink()
 
-X <- select(tbl_GENOTYPE, Angle)
+X <- select(Genotype_GENOTYPE, Angle)
 
 br <- seq(0, 360, by=5)
 
