@@ -5,9 +5,8 @@ Change GENOTYPE with the actual one (substitute spaces with underlines and don't
 
 Two similar tests are emplyoyed(:
 
-		binom.test from stats package. Change test as wished: "less" or "greater" or "two.sided".
-
-		prop from mosaic package to test the proportion of trials giving a result "<=" or ">=" or "==" than the observed.
+- binom.test from stats package. Change test as wished: "less" or "greater" or "two.sided".
+- prop from mosaic package to test the proportion of trials giving a result "<=" or ">=" or "==" than the observed.
 		
 ftp://ftp.sam.math.ethz.ch/sfs/R-CRAN/web/packages/mosaic/vignettes/Resampling.pdf
 
