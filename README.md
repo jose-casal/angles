@@ -7,7 +7,8 @@ Two similar tests are emplyoyed(:
 
 - binom.test from stats package. Change test as wished: "less" or "greater" or "two.sided".
 - prop from mosaic package to test the proportion of trials giving a result "<=" or ">=" or "==" than the observed.
+
+[Kaplan et al (2019) ](ftp://ftp.sam.math.ethz.ch/sfs/R-CRAN/web/packages/mosaic/vignettes/Resampling.pdf)
 		
-ftp://ftp.sam.math.ethz.ch/sfs/R-CRAN/web/packages/mosaic/vignettes/Resampling.pdf
 
 A nice rose diagram with the angles in 5 degrees bins is also produced.
