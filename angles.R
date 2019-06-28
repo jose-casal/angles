@@ -19,7 +19,7 @@
 # #########################################
 
 extras <-
-  c("mosaic", "dplyr")
+  c("mosaic", "dplyr", "ggplot2")
 if (length(setdiff(extras, rownames(installed.packages()))) > 0) {
   install.packages(setdiff(extras, rownames(installed.packages())))
 }
@@ -35,7 +35,7 @@ L2 <- 315
 
 files_GENOTYPE <- list.files(path = ".", pattern = glob2rx("GENOTYPE*.csv"), full.names = T)
 
-tbl_GENOTYPE <- sapply(files_GENOTYPE, read.csv, sep = "\t", simplify=FALSE) %>%  bind_rows(.id = "id")  %>% mutate(Angle = ifelse(Angle < 0, Angle + 36b0, Angle))
+tbl_GENOTYPE <- sapply(files_GENOTYPE, read.csv, sep = "\t", simplify=FALSE) %>%  bind_rows(.id = "id")  %>% mutate(Angle = ifelse(Angle < 0, Angle + 360, Angle))
 
 head(tbl_GENOTYPE)
 
@@ -95,6 +95,10 @@ Xtable$range <- factor(Xtable$range, levels =Xtable$range)
 
 plot <- ggplot(Xtable) + geom_bar(width = 4,stat="identity", position = position_nudge(x = 1.5), aes(x = numbers, y = percentage)) + coord_polar(start = -pi/2, direction =-1)
  
+pdf(file = "GENOTYPE.pdf", width=7, height=7)
+
 plot + scale_x_continuous(limits= c(0,360),
 breaks= c(0, 45, 90, 135, 180, 225, 270, 315),
 labels=c("0º", "45º", "90º", "135º", "180º", "225º", "270º","315º"), name = "EB1 comet angles in GENOTYPE cells") + theme_grey(base_size = 22)
+
+dev.off()
