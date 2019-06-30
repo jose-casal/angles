@@ -39,9 +39,9 @@ tbl_GENOTYPE <- sapply(files_GENOTYPE, read.csv, sep = "\t", simplify=FALSE) %>%
 
 head(tbl_GENOTYPE)
 
-Posterior_GENOTYPE<- nrownrow(tbl_GENOTYPE) - nrownrow(filter(tbl_GENOTYPE, between(Angle, R1, L2)))
+Posterior_GENOTYPE<- nrow(tbl_GENOTYPE) - nrow(filter(tbl_GENOTYPE, between(Angle, R1, L2)))
 
-Anterior_GENOTYPE <- nrownrow(filter(tbl_GENOTYPE, between(Angle, R2, L1)))
+Anterior_GENOTYPE <- nrow(filter(tbl_GENOTYPE, between(Angle, R2, L1)))
 
 Right_GENOTYPE<- nrow(filter(tbl_GENOTYPE, between(Angle, R1, R2)))
 
@@ -61,15 +61,15 @@ writeLines(x)
 # change test as wished: "less" or "greater" or "two.sided"
 # #########################################################
 
-cat("===================================================================\n")
-cat("Binomial test: Right_GENOTYPE is less than 0.5")
-cat("===================================================================\n")
+cat("======================================================\n")
+cat("Binomial test: Right_GENOTYPE is less than 0.5\n")
+cat("======================================================\n")
 
 binom.test(x = Right_GENOTYPE, n = total_RL_GENOTYPE, p = 0.5, alternative = c("less"), conf.level = 0.95)
 
-cat("===================================================================\n")
-cat("Binomial test: Posterior_GENOTYPE is less than 0.5")
-cat("===================================================================\n")
+cat("======================================================\n")
+cat("Binomial test: Posterior_GENOTYPE is less than 0.5\n")
+cat("======================================================\n")
 
 binom.test(x = Posterior_GENOTYPE, n = total_AP_GENOTYPE, p = 0.5, alternative = c("less"), conf.level = 0.95)
 
@@ -78,20 +78,20 @@ binom.test(x = Posterior_GENOTYPE, n = total_AP_GENOTYPE, p = 0.5, alternative =
 # ###########################################
 
 cat("===================================================================\n")
-cat("Proportion of simulations where Right_GENOTYPE is <= bserved")
-cat("===================================================================\n")
+cat("Proportion of simulations where Right_GENOTYPE is <= observed\n")
+cat("===================================================================\n\n")
 
 prop(~rbinom(100000, prob=0.5, size= total_RL_GENOTYPE) <= Right_GENOTYPE)
 
 cat("===================================================================\n")
-cat("Proportion of simulations where Posterior_GENOTYPE is <= observed")
-cat("===================================================================\n")
+cat("Proportion of simulations where Posterior_GENOTYPE is <= observed\n")
+cat("===================================================================\n\n")
 
 prop(~rbinom(100000, prob=0.5, size= total_AP_GENOTYPE) <= Posterior_GENOTYPE)
 
 sink()
 
-X <- select(Genotype_GENOTYPE, Angle)
+X <- select(tbl_GENOTYPE, Angle)
 
 br <- seq(0, 360, by=5)
 
