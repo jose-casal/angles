@@ -3,6 +3,8 @@ R script to test if EB1 comet angles are distributed randomly between opposite s
 
 Change GENOTYPE with the actual one (substitute spaces with underlines and don't use strange characters).
 
+csv files has to have the same number, order, and name of columns. One column has to be called "Angle"
+
 An easy way of running the script is by using the comand line, for example:
 
 $ cd ~/Data/tests/
@@ -46,7 +48,20 @@ $ ls -1
     pk_sple_UAS.pk_35.csv
     pk_sple_UAS.pk_36.csv
     tests.Rproj
+    
+$ head pk_sple_UA.pk_01.csv
 
+         Angle      Length
+    1    -90        14
+    2    -27.759    21.915
+    3    102.095    14.221
+    4    138.366    23.712
+    5    128.660    13.509
+    6    -70.017    11.705
+    7     98.973    19.164
+    8    105.945    14.705
+    9    161.565    18.500
+    
 $ Rscript <(sed -e 's/GENOTYPE/pk_sple_UA.pk/g' angles.R)
 
 Two similar tests are emplyoyed:
