@@ -54,6 +54,6 @@ Two similar tests are emplyoyed:
 - binom.test from stats package. Change test as wished: "less" or "greater" or "two.sided".
 - prop from mosaic package to test the proportion of trials giving a result "<=" or ">=" or "==" than the observed.
 
-A nice rose diagram with the angles in 5 degrees bins is drwan with ggplot.
+A nice rose diagram with the angles in 5 degrees bins is drawn with ggplot.
 
 [Kaplan et al. (2019)](https://cran.r-project.org/web/packages/mosaic/vignettes/Resampling.pdf).
