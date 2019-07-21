@@ -18,6 +18,8 @@
 # Find and replace GENOTYPE with actual one
 # #########################################
 
+setwd("DIRECTORY")
+
 extras <-
   c("mosaic", "dplyr", "ggplot2")
 if (length(setdiff(extras, rownames(installed.packages()))) > 0) {
@@ -39,17 +41,17 @@ tbl_GENOTYPE <- sapply(files_GENOTYPE, read.csv, sep = "\t", simplify=FALSE) %>%
 
 head(tbl_GENOTYPE)
 
-Posterior_GENOTYPE<- nrow(tbl_GENOTYPE) - nrow(filter(tbl_GENOTYPE, between(Angle, R1, L2)))
+Posterior <- nrow(tbl_GENOTYPE) - nrow(filter(tbl_GENOTYPE, between(Angle, R1, L2)))
 
-Anterior_GENOTYPE <- nrow(filter(tbl_GENOTYPE, between(Angle, R2, L1)))
+Anterior <- nrow(filter(tbl_GENOTYPE, between(Angle, R2, L1)))
 
-Right_GENOTYPE<- nrow(filter(tbl_GENOTYPE, between(Angle, R1, R2)))
+Right <- nrow(filter(tbl_GENOTYPE, between(Angle, R1, R2)))
 
-Left_GENOTYPE <- nrow(filter(tbl_GENOTYPE, between(Angle, L1, L2)))
+Left <- nrow(filter(tbl_GENOTYPE, between(Angle, L1, L2)))
 
-total_RL_GENOTYPE <- Right_GENOTYPE + Left_GENOTYPE 
+total_RL <- Right + Left
 
-total_AP_GENOTYPE <- Anterior_GENOTYPE + Posterior_GENOTYPE
+total_AP <- Anterior + Posterior
 
 sink('GENOTYPE.txt')
 
@@ -61,33 +63,33 @@ writeLines(x)
 # change test as wished: "less" or "greater" or "two.sided"
 # #########################################################
 
-cat("======================================================\n")
-cat("Binomial test: Right_GENOTYPE is less than 0.5\n")
-cat("======================================================\n")
+cat("===========================================================================\n")
+cat("Binomial test: Frequency of Right comets of GENOTYPE is less than 0.5\n")
+cat("===========================================================================\n")
 
-binom.test(x = Right_GENOTYPE, n = total_RL_GENOTYPE, p = 0.5, alternative = c("less"), conf.level = 0.95)
+binom.test(x = Right, n = total_RL, p = 0.5, alternative = c("less"), conf.level = 0.95)
 
-cat("======================================================\n")
-cat("Binomial test: Posterior_GENOTYPE is less than 0.5\n")
-cat("======================================================\n")
+cat("===========================================================================\n")
+cat("Binomial test: Frequency of Posterior comets of GENOTYPE is less than 0.5\n")
+cat("===========================================================================\n")
 
-binom.test(x = Posterior_GENOTYPE, n = total_AP_GENOTYPE, p = 0.5, alternative = c("less"), conf.level = 0.95)
+binom.test(x = Posterior, n = total_AP, p = 0.5, alternative = c("less"), conf.level = 0.95)
 
 # ###########################################
 # change test as wished: "<=" or ">=" or "=="
 # ###########################################
 
-cat("===================================================================\n")
-cat("Proportion of simulations where Right_GENOTYPE is <= observed\n")
-cat("===================================================================\n\n")
+cat("===========================================================================\n")
+cat("Proportion of simulations where Right comets of GENOTYPE is <= observed\n")
+cat("===========================================================================\n")
 
-prop(~rbinom(100000, prob=0.5, size= total_RL_GENOTYPE) <= Right_GENOTYPE)
+prop(~rbinom(100000, prob=0.5, size= total_RL) <= Right)
 
-cat("===================================================================\n")
-cat("Proportion of simulations where Posterior_GENOTYPE is <= observed\n")
-cat("===================================================================\n\n")
+cat("===========================================================================\n")
+cat("Proportion of simulations where Posterior comets of GENOTYPE is <= observed\n")
+cat("===========================================================================\n")
 
-prop(~rbinom(100000, prob=0.5, size= total_AP_GENOTYPE) <= Posterior_GENOTYPE)
+prop(~rbinom(100000, prob=0.5, size= total_AP) <= Posterior)
 
 sink()
 
@@ -111,6 +113,6 @@ pdf(file = "GENOTYPE.pdf", width=7, height=7)
 
 plot + scale_x_continuous(limits= c(0,360),
 breaks= c(0, 45, 90, 135, 180, 225, 270, 315),
-labels=c("0º", "45º", "90º", "135º", "180º", "225º", "270º","315º"), name = "EB1 comet angles in GENOTYPE cells") + theme_grey(base_size = 22)
+labels=c(expression(paste(0^o)), expression(paste(45^o)), expression(paste(90^o)), expression(paste(135^o)), expression(paste(180^o)), expression(paste(225^o)), expression(paste(270^o)),expression(paste(315^o))), name = "EB1 comet angles in GENOTYPE cells") + theme_grey(base_size = 22)
 
 dev.off()
