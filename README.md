@@ -71,4 +71,6 @@ Two similar tests are emplyoyed:
 
 A nice rose diagram with the angles in 5 degrees bins is drawn with ggplot.
 
+Alternatively, copy angles.R in your favourite folder and run AngleApp (an AppleScript application), to take care of all the details.
+
 [Kaplan et al. (2019)](https://cran.r-project.org/web/packages/mosaic/vignettes/Resampling.pdf).

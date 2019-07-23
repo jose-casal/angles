@@ -109,10 +109,11 @@ Xtable$range <- factor(Xtable$range, levels =Xtable$range)
 
 plot <- ggplot(Xtable) + geom_bar(width = 4,stat="identity", position = position_nudge(x = 1.5), aes(x = numbers, y = percentage)) + coord_polar(start = -pi/2, direction =-1)
  
-pdf(file = "GENOTYPE.pdf", width=7, height=7)
+pdf(file = "GENOTYPE.pdf", width=7, height=7, encoding="MacRoman")
 
 plot + scale_x_continuous(limits= c(0,360),
 breaks= c(0, 45, 90, 135, 180, 225, 270, 315),
-labels=c(expression(paste(0^o)), expression(paste(45^o)), expression(paste(90^o)), expression(paste(135^o)), expression(paste(180^o)), expression(paste(225^o)), expression(paste(270^o)),expression(paste(315^o))), name = "EB1 comet angles in GENOTYPE cells") + theme_grey(base_size = 22)
+labels=c(expression("0"*degree), expression("45"*degree), expression("90"*degree), expression("135"*degree), expression("180"*degree), expression("225"*degree), expression("270"*degree),expression("315"*degree)), name = "EB1 comet angles in GENOTYPE cells") + theme_grey(base_size = 22)
+
 
 dev.off()
