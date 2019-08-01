@@ -37,7 +37,7 @@ L2 <- 315
 
 files_GENOTYPE <- list.files(path = ".", pattern = glob2rx("GENOTYPE*.csv"), full.names = T)
 
-tbl_GENOTYPE <- sapply(files_GENOTYPE, read.csv, sep = "\t", simplify=FALSE) %>%  bind_rows(.id = "id")  %>% mutate(Angle = ifelse(Angle < 0, Angle + 360, Angle))
+tbl_GENOTYPE <- sapply(files_GENOTYPE, read.csv, sep = ",", simplify=FALSE) %>%  bind_rows(.id = "id")  %>% mutate(Angle = ifelse(Angle < 0, Angle + 360, Angle))
 
 head(tbl_GENOTYPE)
 
