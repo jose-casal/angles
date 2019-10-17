@@ -21,3 +21,4 @@ clean_comets <- clean_comets %>%
 write.csv(clean_comets, file = "clean_comets.csv")
 
 clean_comets
+

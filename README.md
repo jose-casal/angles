@@ -1,4 +1,5 @@
 # comets
+<<<<<<< HEAD
 import a comets.csv file with the following structure:
 
   > head(comets)
@@ -24,6 +25,34 @@ and create a clean_comets.csv:
 5        5  6.05  8.89   5.32   6.63
 6        6 13.4   8.48  12.2    5.07
 
+=======
+transform comets.csv, the output of tracking EB1 comets in ImageJ:
+
+    
+        > head(comets, 10)
+       Nr Track.ID Point.ID      x     y     t     I   Len   D2S D2R   D2P     v        α      Δα
+    1   1        1        1  7.614 4.330  0.00  72.0 0.000 0.000  NA    NA    NA       NA      NA
+    2   2        1        2  8.353 3.920  5.16  93.0 0.845 0.845  NA 0.845 0.164  -29.055      NA
+    3   3        1        3  8.928 3.674 10.32  37.2 1.470 1.469  NA 0.625 0.121  -23.199   5.856
+    4   4        1        4  9.051 3.181 15.48  73.8 1.978 1.840  NA 0.508 0.098  -75.964 -52.765
+    5   5        2        1 12.458 4.413  0.00  96.6 0.000 0.000  NA    NA    NA       NA      NA
+    6   6        2        2 12.129 3.879  5.16  56.4 0.627 0.627  NA 0.627 0.121 -121.608      NA
+    7   7        2        3 11.555 3.386 10.32  40.8 1.383 1.367  NA 0.757 0.147 -139.399 -17.791
+    8   8        2        4 11.226 2.935 15.48 120.6 1.942 1.924  NA 0.558 0.108 -126.027  13.371
+    9   9        2        5 10.734 2.483 20.64 102.6 2.610 2.587  NA 0.668 0.129 -137.490 -11.462
+    10 10        2        6 10.241 2.073 25.80 141.6 3.251 3.223  NA 0.641 0.124 -140.194  -2.705
+
+into a clean_comets.csv file:
+   
+      > head(clean_comets, 2)
+      # A tibble: 2 x 5
+      # Groups:   Track.ID [2]
+        Track.ID x_low y_low x_high y_high
+           <int> <dbl> <dbl>  <dbl>  <dbl>
+      1        1  7.61  4.33   9.05   3.18
+      2        2 12.5   4.41  10.2    2.07
+    
+>>>>>>> 42124d13a8d7242f63228b0e70c993d9320fd1f9
 # angles
 R script to test if EB1 comet angles are distributed randomly between opposite sectors of a cell. You can change the size of the sectors by selecting different angles (R1, R2, L1, L2).
 
