@@ -18,13 +18,13 @@ transform comets.csv, the output of tracking EB1 comets in ImageJ:
 
 into a clean_comets.csv file:
    
-      > head(clean_comets, 2)
-      # A tibble: 2 x 5
-      # Groups:   Track.ID [2]
-        Track.ID x_low y_low x_high y_high
-           <int> <dbl> <dbl>  <dbl>  <dbl>
-      1        1  7.61  4.33   9.05   3.18
-      2        2 12.5   4.41  10.2    2.07
+    > head(clean_comets, 2)
+    # A tibble: 2 x 6
+    # Groups:   Track.ID [2]
+      Track.ID x_low y_low x_high y_high total_deg
+         <int> <dbl> <dbl>  <dbl>  <dbl>     <dbl>
+    1        1  7.61  4.33   9.05   3.18     -38.6
+    2        2 12.5   4.41  10.2    2.07    -133. 
 
 # angles
 R script to test if EB1 comet angles are distributed randomly between opposite sectors of a cell. You can change the size of the sectors by selecting different angles (R1, R2, L1, L2).
